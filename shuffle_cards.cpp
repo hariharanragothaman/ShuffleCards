@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
+#include <cstring>
 
 /* This solution should not use STL */
 
@@ -34,59 +35,96 @@ bool checkDeck(int cards[], int numOfCards)
 	return 0;
 }
 
-void reverse(int cards[], int start, int end)
+int* reverse(int cards[], int start, int end)
 {
 	/* Helper function to reverse the deck */
 	while (start < end)
 	{
-		int temp = arr[start];
-		arr[start] = arr[end];
-		arr[end] = temp;
+		int temp = cards[start];
+		cards[start] = cards[end];
+		cards[end] = temp;
 
 		start ++;
 		end --;
 	}
+	return cards;
 }
 
 
-void append(int cards[], int reverse[])
+int* append(int cards[], int reversed[], int numOfCards)
 {
-	/* Helper function to append 2 arrays */
+	/* Helper Function append 2 arrays */
+	int* res = new int[2*numOfCards];
 
+	for(int i=0; i< 2*numOfCards; i++)
+	{
+		if (i < numOfCards)
+		{
+			res[i] = cards[i];
+		}
+		else
+		{
+			res[i] = reversed[i-numOfCards];
+		}
+	}
+
+	return res;
 }
 
-void ShuffleDeck(int cards[], int numOfCards)
+int* ShuffleDeck(int cards[], int numOfCards)
 {
 
 	/*Function executes one "round" of shuffle & 
 	 * Returns the Shuffled Deck
 	 */
+	int* reversed = new int[numOfCards];;
+	int* appended = new int[2*numOfCards];
+	int* result = new int[numOfCards];
 
-	std::cout << "Shuffling Deck";
-	result = reverse(cards, 0, numOfCards-1)
-	append(cards, result)
+	std::memcpy(reversed, cards, sizeof(int)*numOfCards);
+	reversed = reverse(reversed, 0, numOfCards-1);	
+	appended = append(cards, reversed, numOfCards);
 
-	// Get all the odd sequences and return it
-
+	int j = 0;
+	int i = 0;
+	while (i < 2*numOfCards)
+	{
+		result[j] = appended[i];
+		j += 1;
+		i += 2;
+	}
+	return result;
 }
 
 int countRounds(int cards[], int numOfCards)
 {
 	/*Function that counts - number of rounds
 	 * to restore the deck in it's original order */
+
 	bool inOrder = false;
-	
+	int count = 0
 
-	/*
-	while not inOrder
-	1. Call Shuffle deck - which does 1 round
-	2. Check if returned round is in original order
-	3. If it is - return count = else continue
+	while (not inOrder)
+	{
+		temp = ShuffleDeck(cards, numOfCards);
+		count += 1;
 
+		std::cout <<"The shuffled deck is:";
+		displayDeck(temp, numOfCards);
 
+		if (checkDeck())
+		{
+			inOrder = true;
+			return count;
+		}
 
+		else
+		{
+			cards = temp;
+		}
 
-	*/
+	}
+
 	return 0;
 }
 
@@ -108,14 +146,18 @@ int main(int argc, char *argv[])
 	numOfCards = atoi(argv[1]);
 	int cards[numOfCards];
 
-	// Setting the Deck of Cards
+	// Setting the Deck of Cards and Displaying the original deck
 	setDeck(cards, numOfCards);
-
-	//Displaying the set Deck of cards 
+	std::cout <<"The orignal deck of cards are:" << std::endl;
 	displayDeck(cards,numOfCards);
 
+
+	ShuffleDeck(cards, numOfCards);
+	/***
 	// Shuffling the cards and checking for order
 	numOfRounds = countRounds(cards, numOfCards);
 	std::cout << "The number of rounds is: " << numOfRounds << std::endl;
 	return 0;
+
+	*/
 }
