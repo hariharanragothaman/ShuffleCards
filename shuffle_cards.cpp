@@ -1,9 +1,20 @@
 #include <iostream>
 #include <stdlib.h>
 
+/* This solution should not use STL */
+
+void setDeck(int cards[], int numOfCards)
+{
+	/* Function to set the deck of cards initially */
+	for (int i=0;i<numOfCards; i++)
+	{
+		cards[i] = i+1;
+	}
+}
 
 void displayDeck(int cards[], int numOfCards)
 {
+	/* Function to display the deck of cards */
 	for (int i =0; i < numOfCards; i++)
 		std:: cout << cards[i];
 	std::cout << std::endl;
@@ -11,6 +22,7 @@ void displayDeck(int cards[], int numOfCards)
 
 bool checkDeck(int cards[], int numOfCards)
 {
+	/* Function to check if the deck is in order */
 	for (int i=0; i<numOfCards;i++)
 	{
 		if  (cards[i] != i+1)
@@ -22,29 +34,61 @@ bool checkDeck(int cards[], int numOfCards)
 	return 0;
 }
 
-void ShuffleDeck(int cards[], int numOfCards)
+void reverse(int cards[], int start, int end)
 {
-
-	// This executes one "round" of shuffle
-	std::cout << "Shuffling Deck";
-
-
-}
-
-void setDeck(int cards[], int numOfCards)
-{
-	for (int i=0;i<numOfCards; i++)
+	/* Helper function to reverse the deck */
+	while (start < end)
 	{
-		cards[i] = i+1;
+		int temp = arr[start];
+		arr[start] = arr[end];
+		arr[end] = temp;
+
+		start ++;
+		end --;
 	}
 }
 
 
-int countRounds(int cards[], int numOfCards)
+void append(int cards[], int reverse[])
 {
-	return 0;
+	/* Helper function to append 2 arrays */
+
 }
 
+void ShuffleDeck(int cards[], int numOfCards)
+{
+
+	/*Function executes one "round" of shuffle & 
+	 * Returns the Shuffled Deck
+	 */
+
+	std::cout << "Shuffling Deck";
+	result = reverse(cards, 0, numOfCards-1)
+	append(cards, result)
+
+	// Get all the odd sequences and return it
+
+}
+
+int countRounds(int cards[], int numOfCards)
+{
+	/*Function that counts - number of rounds
+	 * to restore the deck in it's original order */
+	bool inOrder = false;
+	
+
+	/*
+	while not inOrder
+	1. Call Shuffle deck - which does 1 round
+	2. Check if returned round is in original order
+	3. If it is - return count = else continue
+
+
+
+
+	*/
+	return 0;
+}
 
 int main(int argc, char *argv[])
 {
