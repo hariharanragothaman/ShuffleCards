@@ -17,7 +17,7 @@ void displayDeck(int cards[], int numOfCards)
 {
 	/* Function to display the deck of cards */
 	for (int i =0; i < numOfCards; i++)
-		std:: cout << cards[i];
+		std::cout << cards[i] <<" ";
 	std::cout << std::endl;
 } 
 
@@ -28,11 +28,10 @@ bool checkDeck(int cards[], int numOfCards)
 	{
 		if  (cards[i] != i+1)
 		{
-			return 1;
-			break;
+			return false;
 		}
 	}
-	return 0;
+	return true;
 }
 
 int* reverse(int cards[], int start, int end)
@@ -77,7 +76,7 @@ int* ShuffleDeck(int cards[], int numOfCards)
 	/*Function executes one "round" of shuffle & 
 	 * Returns the Shuffled Deck
 	 */
-	int* reversed = new int[numOfCards];;
+	int* reversed = new int[numOfCards];
 	int* appended = new int[2*numOfCards];
 	int* result = new int[numOfCards];
 
@@ -102,22 +101,24 @@ int countRounds(int cards[], int numOfCards)
 	 * to restore the deck in it's original order */
 
 	bool inOrder = false;
-	int count = 0
+	bool check = false;
+	int count = 0;
 
+	int* temp = new int[numOfCards];
 	while (not inOrder)
 	{
 		temp = ShuffleDeck(cards, numOfCards);
 		count += 1;
 
-		std::cout <<"The shuffled deck is:";
+		std::cout <<"The shuffled deck of cards are: ";
 		displayDeck(temp, numOfCards);
 
-		if (checkDeck())
+		check = checkDeck(temp, numOfCards);
+		if (check)
 		{
 			inOrder = true;
 			return count;
 		}
-
 		else
 		{
 			cards = temp;
@@ -148,16 +149,11 @@ int main(int argc, char *argv[])
 
 	// Setting the Deck of Cards and Displaying the original deck
 	setDeck(cards, numOfCards);
-	std::cout <<"The orignal deck of cards are:" << std::endl;
+	std::cout <<"The orignal deck of cards are:  ";
 	displayDeck(cards,numOfCards);
 
-
-	ShuffleDeck(cards, numOfCards);
-	/***
 	// Shuffling the cards and checking for order
 	numOfRounds = countRounds(cards, numOfCards);
 	std::cout << "The number of rounds is: " << numOfRounds << std::endl;
 	return 0;
-
-	*/
 }
