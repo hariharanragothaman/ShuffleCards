@@ -26,21 +26,31 @@ $ g++ shuffle_cards.cpp -o shuffle
 $ ./shuffle 10
 ```
 
-#### Output
+#### C++ Output
 
 ```
-1010365@hariharanragothaman-OptiPlex-790:/scratch/shufflecards$ ./shuffle 10
-The orignal deck of cards are:  1 2 3 4 5 6 7 8 9 10
-The shuffled deck of cards are: 1 3 5 7 9 10 8 6 4 2
-The shuffled deck of cards are: 1 5 9 8 4 2 6 10 7 3
-The shuffled deck of cards are: 1 9 4 6 7 3 10 2 8 5
-The shuffled deck of cards are: 1 4 7 10 8 5 2 3 6 9
-The shuffled deck of cards are: 1 7 8 2 6 9 3 5 10 4
-The shuffled deck of cards are: 1 8 6 3 10 4 5 9 2 7
-The shuffled deck of cards are: 1 6 10 5 2 7 9 4 3 8
-The shuffled deck of cards are: 1 10 2 9 3 8 4 7 5 6
-The shuffled deck of cards are: 1 2 3 4 5 6 7 8 9 10
-The number of rounds is: 9
+1010365@hariharanragothaman-OptiPlex-790:/scratch/shufflecards$ ./shuffle 5
+The orignal deck of cards are:  1 2 3 4 5
+The shuffled deck of cards are: 1 3 5 4 2
+The shuffled deck of cards are: 1 5 2 4 3
+The shuffled deck of cards are: 1 2 3 4 5
+The number of rounds is: 3
 ```
 
+#### Steps to run the Python Program
 
+```
+$ git clone git@github.com:hariharanragothaman/shufflecards.git
+$ cd shufflecards/
+$ python3 shuffle_cards.py --num 5
+```
+
+#### Python Output
+```
+hr1010365@hariharanragothaman-OptiPlex-790:/scratch/shufflecards$ python3 shuffle_cards.py --num 5
+The deck of cards is: [1, 2, 3, 4, 5]
+The shuffled deck is: [1, 3, 5, 4, 2]
+The shuffled deck is: [1, 5, 2, 4, 3]
+The shuffled deck is: [1, 2, 3, 4, 5]
+The number of rounds it takes is:  3
+```
