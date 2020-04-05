@@ -3,6 +3,7 @@ Solution Module to determine how many rounds it takes to restore deck to origina
 How is shuffling done?
 """
 
+import argparse
 
 def check_deck(deck):
     """
@@ -54,8 +55,19 @@ def get_number_of_rounds(num_of_cards):
         else:
             deck = result
 
+def main():
+    """
+    :param arguments: argparse based arguments
+    :return None
+    """
+    parser = argparse.ArgumentParser(description="Shuffle Counter")
+    parser.add_argument('--num', type=int, action='store', help='Number of Cards')
+    args = parser.parse_args()
+    print("The argument is:", args.num)
+    result = get_number_of_rounds(args.num)
+    print("The number of rounds it takes is: ", result)
+
+
+
 if __name__ == '__main__':
-    for i in range(2, 11):
-        num_of_rounds = get_number_of_rounds(i)
-        print("The number of rounds is", num_of_rounds)
-        print("****************************************")
+    main()
