@@ -15,3 +15,13 @@ Write a program to determine how many rounds it will take to put a deck back int
 1. This will involve creating a data structure to represent the order of the cards.  T
 2. This program should be written in C or C++.  Do not use STL.  
 3. It should take a number of cards in the deck as a command line argument and write the result to stdout.
+
+
+#### Steps to run the Program
+
+```
+$ git clone git@github.com:hariharanragothaman/shufflecards.git
+$ cd shufflecards/
+$ g++ shuffle_cards.cpp -o shuffle
+$ ./shuffle 10
+```
