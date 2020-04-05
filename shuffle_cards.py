@@ -63,11 +63,8 @@ def main():
     parser = argparse.ArgumentParser(description="Shuffle Counter")
     parser.add_argument('--num', type=int, action='store', help='Number of Cards')
     args = parser.parse_args()
-    print("The argument is:", args.num)
     result = get_number_of_rounds(args.num)
     print("The number of rounds it takes is: ", result)
-
-
 
 if __name__ == '__main__':
     main()
