@@ -17,7 +17,7 @@ Write a program to determine how many rounds it will take to put a deck back int
 3. It should take a number of cards in the deck as a command line argument and write the result to stdout.
 
 
-#### Steps to run the Program 
+#### Steps to run the C++ Program 
 
 ```
 $ git clone git@github.com:hariharanragothaman/shufflecards.git
