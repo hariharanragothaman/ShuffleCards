@@ -40,10 +40,7 @@ int*  ShuffleDeck(int cards[], int numOfCards)
 	/*Function executes one "round" of shuffle & 
 	 * Returns the Shuffled Deck
 	 */
-
-	std::cout <<"Inside Shuffle Deck function" << std::endl;
 	int* result = new int[numOfCards];
-	
 	int size = numOfCards;
 
 	for (int j=0; j < numOfCards; j++)
@@ -51,21 +48,14 @@ int*  ShuffleDeck(int cards[], int numOfCards)
 		// Putting the top cards into the result deck
 		result[j] = cards[0];
 
-		std::cout << "The card that went into the new deck is: " << result[j] << std::endl;
-
 		// Delete the top card from the list
 		for (int k=0; k < numOfCards; k++)
 		{
 			cards[k] = cards[k+1];
 		}
 
-
-		std::cout << "In hand after removing top card: " << std::endl;
-	        displayDeck(cards,size);
-
-		std::cout << "Putting top of deck in the end" << std::endl;
+		// "Putting the next top of deck in the end"
 		cards[size-1] = cards[0];
-	        displayDeck(cards,size);
 
 		// Delete the top card from the list
 		for (int k=0; k < numOfCards; k++)
@@ -73,18 +63,9 @@ int*  ShuffleDeck(int cards[], int numOfCards)
 			cards[k] = cards[k+1];
 		}
 
-		std::cout << "Printing the resultant array" << std::endl;
 		size -= 1;
-	        displayDeck(cards,size);
-		std::cout << "******************" << std::endl;
-
 	}
-
-	std::cout<<"Displaying the resultant deck" << std::endl;
-	displayDeck(result, numOfCards);
-
 	return result;
-
 }
 
 int countRounds(int cards[], int numOfCards)
@@ -135,9 +116,6 @@ int main(int argc, char *argv[])
 	setDeck(cards, numOfCards);
 	std::cout <<"The orignal deck of cards are:  ";
 	displayDeck(cards,numOfCards);
-
-
-	//ShuffleDeck(cards, numOfCards);
 
 	//Shuffling the cards and checking for order
 	numOfRounds = countRounds(cards, numOfCards);
