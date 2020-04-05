@@ -12,7 +12,7 @@ You are given a deck containing n cards.  While holding the deck:
 Write a program to determine how many rounds it will take to put a deck back into the original order. 
 
 #### Constraints:
-1. This will involve creating a data structure to represent the order of the cards.  T
+1. This will involve creating a data structure to represent the order of the cards.
 2. This program should be written in C or C++.  Do not use STL.  
 3. It should take a number of cards in the deck as a command line argument and write the result to stdout.
 
