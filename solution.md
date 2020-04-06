@@ -54,8 +54,8 @@ __Logic Pointers__:
 2. Point 1 is done repeatedly till we have no cards in the deck.            
 3. This is essentially the core logic.    
 
-How we implement this in C++ and Python is interesting!
-
+How we implement this in C++ and Python is interesting!      
+   > ShuffleDeck and shuffle_deck are the core functions to look into.
 
 #### C++ Implementation:
 
@@ -68,7 +68,6 @@ __Here, we have a constraint not to use Standard Template Libraries__
     d. `ShuffleDeck`   : Shuffles the deck for a `single` round and return the deck. (As specified in the problem)            
     e. `countRounds`   : Calls `ShuffleDeck`, till deck is in order and finally returns the count.                
     f.  `main`         : Takes the `number of cards` from user and calls ` countRounds`, and posts results to `stdout`     
-
 
 #### Python Implementation
 
